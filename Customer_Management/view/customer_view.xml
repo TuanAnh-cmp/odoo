@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="customer_form_view" model="ir.ui.view">
+            <field name="name">customer.form.view</field>
+            <field name="model">customer</field>
+            <field name="arch" type="xml">
+                <form string="Thông tin khách hàng">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="address"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="customer_tree_view" model="ir.ui.view">
+            <field name="name">customer.tree.view</field>
+            <field name="model">customer</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách khách hàng">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="customer_action">
+            <field name="name">Quản lý khách hàng</field>
+            <field name="res_model">customer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Quản lý khách hàng" id="menu_customer_root" parent="base.menu_sales" action="customer_action"/>
+    </data>
+</odoo>
